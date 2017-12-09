@@ -1,4 +1,13 @@
 
+* First Things First
+** General
+
+Install packages if they aren't already present on the system.
+
+#+BEGIN_SRC emacs-lisp
+  (setq use-package-always-ensure t)
+#+END_SRC
+
 * Theme
 
 [[http://kippura.org/zenburnpage/][Zenburn]] is pretty easy on the eyes.
