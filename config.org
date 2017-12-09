@@ -1,3 +1,14 @@
+
+
+* Packages
+** web-mode
+
+~web-mode.el~ is an autonomous emacs major-mode for editing web templates.
+HTML documents can embed parts (CSS / JavaScript) and blocks (client / server side). 
+
 #+BEGIN_SRC emacs-lisp
-;; THIS IS A DUMMY FILE FOR NOW
+  (use-package web-mode
+    :ensure t
+    :init
+    (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode)))
 #+END_SRC
