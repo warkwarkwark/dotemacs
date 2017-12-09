@@ -1,4 +1,15 @@
 
+* Theme
+
+[[http://kippura.org/zenburnpage/][Zenburn]] is pretty easy on the eyes.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package zenburn-theme
+    :if (window-system)
+    :ensure t
+    :init
+    (load-theme 'zenburn t))
+#+END_SRC
 
 * Packages
 ** web-mode
