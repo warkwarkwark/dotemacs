@@ -1,3 +1,7 @@
+;;Set up the customize file to its own separate file, instead of saving customize settings in init.el.
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(load custom-file :noerror) ; don't care if this exists
+
 ;;; Set up package
 (require 'package)
 (add-to-list 'package-archives
