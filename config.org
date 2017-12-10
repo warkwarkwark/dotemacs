@@ -32,6 +32,63 @@ Increase selected region by semantic units.
     (global-set-key (kbd "C-=") 'er/expand-region))
 #+END_SRC
 
+** flyspell
+
+[[https://www-sop.inria.fr/members/Manuel.Serrano/flyspell/flyspell.html][Flyspell]] enables on-the-fly spell checking in Emacs by the means of a minor mode.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package flyspell
+    :init
+    (progn
+      (setq flyspell-issue-message-flag nil)
+      (dolist (hook '(text-mode-hook))
+        (add-hook hook (lambda () (flyspell-mode 1))))
+      (dolist (hook '(change-log-mode-hook log-edit-mode-hook))
+        (add-hook hook (lambda () (flyspell-mode -1))))
+      (dolist (hook '(prog-mode-hook))
+        (add-hook hook (lambda () (flyspell-prog-mode))))))
+#+END_SRC
+
+[[http://blog.binchen.org/posts/effective-spell-check-in-emacs.html][Effective spell check in Emacs]]
+
+#+BEGIN_SRC emacs-lisp
+  ;; {{ flyspell setup for web-mode
+  (defun web-mode-flyspell-verify ()
+    (let* ((f (get-text-property (- (point) 1) 'face))
+           rlt)
+      (cond
+       ;; Check the words with these font faces, possibly.
+       ;; this *blacklist* will be tweaked in next condition
+       ((not (memq f '(web-mode-html-attr-value-face
+                       web-mode-html-tag-face
+                       web-mode-html-attr-name-face
+                       web-mode-constant-face
+                       web-mode-doctype-face
+                       web-mode-keyword-face
+                       web-mode-comment-face ;; focus on get html label right
+                       web-mode-function-name-face
+                       web-mode-variable-name-face
+                       web-mode-css-property-name-face
+                       web-mode-css-selector-face
+                       web-mode-css-color-face
+                       web-mode-type-face
+                       web-mode-block-control-face)))
+        (setq rlt t))
+       ;; check attribute value under certain conditions
+       ((memq f '(web-mode-html-attr-value-face))
+        (save-excursion
+          (search-backward-regexp "=['\"]" (line-beginning-position) t)
+          (backward-char)
+          (setq rlt (string-match "^\\(value\\|class\\|ng[A-Za-z0-9-]*\\)$"
+                                  (thing-at-point 'symbol)))))
+       ;; finalize the blacklist
+       (t
+        (setq rlt nil)))
+      rlt))
+  (put 'web-mode 'flyspell-mode-predicate 'web-mode-flyspell-verify)
+  ;; }}
+#+END_SRC
+
 ** web-mode
 
 ~web-mode.el~ is an autonomous emacs major-mode for editing web templates.
