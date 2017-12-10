@@ -21,6 +21,17 @@ Install packages if they aren't already present on the system.
 #+END_SRC
 
 * Packages
+
+** expand-region
+
+Increase selected region by semantic units.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package expand-region
+    :init
+    (global-set-key (kbd "C-=") 'er/expand-region))
+#+END_SRC
+
 ** web-mode
 
 ~web-mode.el~ is an autonomous emacs major-mode for editing web templates.
