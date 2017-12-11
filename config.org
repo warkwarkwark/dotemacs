@@ -22,6 +22,19 @@ Install packages if they aren't already present on the system.
 
 * Packages
 
+** emmet-mode
+
+Unofficial Emmet's support for emacs
+
+#+BEGIN_SRC emacs-lisp
+  (use-package emmet-mode
+    :init
+    (progn
+      (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
+      (add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
+      (add-hook 'web-mode-hook  'emmet-mode)))
+#+END_SRC
+
 ** expand-region
 
 Increase selected region by semantic units.
