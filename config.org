@@ -26,6 +26,13 @@ Set cursor color to red (easier to see).
 (set-cursor-color "#ff0000")
 #+END_SRC
 
+* Miscellaneous
+
+Don't blink the damn cursor!
+
+#+BEGIN_SRC emacs-lisp
+  (blink-cursor-mode 0)
+#+END_SRC
 
 * Packages
 
