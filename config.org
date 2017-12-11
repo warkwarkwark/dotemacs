@@ -20,6 +20,13 @@ Install packages if they aren't already present on the system.
     (load-theme 'zenburn t))
 #+END_SRC
 
+Set cursor color to red (easier to see).
+
+#+BEGIN_SRC emacs-lisp
+(set-cursor-color "#ff0000")
+#+END_SRC
+
+
 * Packages
 
 ** emmet-mode
