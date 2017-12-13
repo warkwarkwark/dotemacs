@@ -3,3 +3,4 @@ config.el
 elpa/
 custom.el
 games/
+.mc-lists.el

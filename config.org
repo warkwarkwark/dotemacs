@@ -134,6 +134,21 @@ Increase selected region by semantic units.
   ;; }}
 #+END_SRC
 
+** multiple-cursors
+
+Multiple cursors for Emacs.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package multiple-cursors
+    :init
+    (progn
+      (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+      (global-set-key (kbd "C->") 'mc/mark-next-like-this)
+      (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+      (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+      (global-set-key (kbd "C-S-<mouse-1>") 'mc/add-cursor-on-click)))
+#+END_SRC
+
 ** web-mode
 
 ~web-mode.el~ is an autonomous emacs major-mode for editing web templates.
