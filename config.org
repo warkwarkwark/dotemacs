@@ -36,6 +36,16 @@ Don't blink the damn cursor!
 
 * Packages
 
+** company
+
+Modular text completion framework
+
+#+BEGIN_SRC emacs-lisp
+  (use-package company
+    :init
+    (add-hook 'after-init-hook 'global-company-mode))
+#+END_SRC
+
 ** emmet-mode
 
 Unofficial Emmet's support for emacs
