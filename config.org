@@ -26,6 +26,14 @@ Set cursor color to red (easier to see).
 (set-cursor-color "#ff0000")
 #+END_SRC
 
+Default region (selection) colors are hard for me to see.  Change them to more jarring.
+
+#+BEGIN_SRC emacs-lisp
+  (set-face-attribute 'region nil
+                      :background "WhiteSmoke"
+                      :foreground "black")
+#+END_SRC
+
 * Miscellaneous
 
 Don't blink the damn cursor!
