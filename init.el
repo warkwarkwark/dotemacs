@@ -1,3 +1,7 @@
+;; Free up screen real estate
+(scroll-bar-mode -1)
+(menu-bar-mode -1)
+
 ;;Set up the customize file to its own separate file, instead of saving customize settings in init.el.
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file :noerror) ; don't care if this exists
