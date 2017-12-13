@@ -134,6 +134,22 @@ Increase selected region by semantic units.
   ;; }}
 #+END_SRC
 
+** git-gutter-fringe
+
+Fringe version of git-gutter.el
+
+#+BEGIN_SRC emacs-lisp
+  (use-package git-gutter-fringe
+    :ensure fringe-helper
+    :config
+    (progn
+      (set-face-foreground 'git-gutter-fr:modified "yellow")
+      (set-face-foreground 'git-gutter-fr:added    "green")
+      (set-face-foreground 'git-gutter-fr:deleted  "red")
+
+      (global-git-gutter-mode)))
+#+END_SRC
+
 ** multiple-cursors
 
 Multiple cursors for Emacs.
