@@ -34,6 +34,12 @@ Default region (selection) colors are hard for me to see.  Change them to more j
                       :foreground "black")
 #+END_SRC
 
+Italicize comments.
+
+#+BEGIN_SRC emacs-lisp
+  (make-face-italic 'font-lock-comment-face)
+#+END_SRC
+
 * Miscellaneous
 
 Don't blink the damn cursor!
